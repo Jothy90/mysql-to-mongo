@@ -1,4 +1,4 @@
-package com.senzmate.m2m.mongo.repository;
+package com.senzmate.m2m.mongo;
 
 import com.senzmate.m2m.document.HistoryDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;

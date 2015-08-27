@@ -1,8 +1,5 @@
 package com.senzmate.m2m.table;
 
-/**
- * Created by john on 1/5/15.
- */
 public class History {
     private Integer id;
     private String deviceId;

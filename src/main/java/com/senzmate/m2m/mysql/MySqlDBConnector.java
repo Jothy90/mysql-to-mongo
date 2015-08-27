@@ -7,10 +7,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Project Trackler Platform
- * Created by jaykrish on 5/25/14.
- */
 public class MySqlDBConnector {
     private static final Logger LOGGER = Logger.getLogger(MySqlDBConnector.class.getName());
     private static Connection connection = null;
@@ -25,10 +21,6 @@ public class MySqlDBConnector {
             if (connection == null || connection.isClosed()) {
                 LOGGER.log(Level.ALL, "JDBC connection is null and connection now");
                 Class.forName("com.mysql.jdbc.Driver");
-                /*connection = (Connection) DriverManager
-                        .getConnection("jdbc:mysql://localhost:3306/tracklers","antonc","@n40nC");*/
-                /*connection = (Connection) DriverManager
-                        .getConnection("jdbc:mysql://localhost:3306/t_box", "root", "root@SenzMate");*/
                 connection = (Connection) DriverManager
                         .getConnection("jdbc:mysql://localhost:3306/t_box", "root", "root");
                 connection.setAutoReconnect(true);
