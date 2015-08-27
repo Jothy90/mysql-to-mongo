@@ -4,11 +4,8 @@ import com.mysql.jdbc.Connection;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MySqlDBConnector {
-    private static final Logger LOGGER = Logger.getLogger(MySqlDBConnector.class.getName());
     private static Connection connection = null;
 
     /**
@@ -19,20 +16,20 @@ public class MySqlDBConnector {
     public static synchronized Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
-                LOGGER.log(Level.ALL, "JDBC connection is null and connection now");
+                System.out.println("JDBC connection is null and connection now");
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = (Connection) DriverManager
                         .getConnection("jdbc:mysql://localhost:3306/t_box", "root", "root");
                 connection.setAutoReconnect(true);
             } else {
-                LOGGER.log(Level.ALL, "Returning existing JDBC connection ");
+                System.out.println("Returning existing JDBC connection ");
                 return connection;
             }
         } catch (ClassNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Where is your MySQL JDBC Driver?" + e);
+            System.out.println("Where is your MySQL JDBC Driver?" + e);
             connection = null;
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Connection Failed!" + e);
+            System.out.println("Connection Failed!" + e);
             connection = null;
         }
         return connection;
@@ -46,7 +43,7 @@ public class MySqlDBConnector {
         try {
             con.close();
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "SQL Exception in closing JDBC connection!" + e);
+            System.out.println("SQL Exception in closing JDBC connection!" + e);
         }
     }
 }

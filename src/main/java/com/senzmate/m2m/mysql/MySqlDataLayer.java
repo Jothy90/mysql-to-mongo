@@ -5,12 +5,8 @@ import com.senzmate.m2m.table.History;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MySqlDataLayer {
-    private static final Logger LOGGER = Logger.getLogger(MySqlDataLayer.class.getName());
-
 
     //Mysql to Mongo
     public static List<History> getAllHistory() {
@@ -29,7 +25,7 @@ public class MySqlDataLayer {
             result = MySqlDBUtil.sqlUpdate(con, sql);
             con.close();
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "SQLException: " + e);
+            System.out.println("SQLException: " + e);
         }
         return result;
     }

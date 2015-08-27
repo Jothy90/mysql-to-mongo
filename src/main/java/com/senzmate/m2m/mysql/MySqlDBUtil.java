@@ -8,11 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MySqlDBUtil {
-    private static final Logger LOGGER = Logger.getLogger(MySqlDBUtil.class.getName());
 
     public static List<History> getHistoryList(String sql) {
         List<History> historyList =new ArrayList<History>();
@@ -31,7 +28,7 @@ public class MySqlDBUtil {
             resultSet.close();
             con.close();
         }catch (SQLException e){
-            LOGGER.log(Level.SEVERE, "SQLException: " + e);
+            System.out.println("SQLException: " + e);
         }
         return historyList;
     }
