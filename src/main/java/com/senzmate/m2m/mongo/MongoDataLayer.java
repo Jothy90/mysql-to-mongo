@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import java.util.List;
 
 public class MongoDataLayer {
-    static ApplicationContext ctx = new GenericXmlApplicationContext("SpringConfig.xml");
+    static ApplicationContext ctx = new GenericXmlApplicationContext("mongo-data-config.xml");
 
     static MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 

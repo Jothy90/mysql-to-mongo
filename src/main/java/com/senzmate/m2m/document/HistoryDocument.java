@@ -43,4 +43,14 @@ public class HistoryDocument {
     public void setDate(String date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "HistoryDocument{" +
+                "id='" + id + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                ", entry='" + entry + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }

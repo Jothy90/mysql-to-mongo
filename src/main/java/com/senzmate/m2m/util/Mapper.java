@@ -13,8 +13,12 @@ public class Mapper {
         List<HistoryDocument> historyDocumentListList=new ArrayList<HistoryDocument>();
         HistoryDocument historyDocument;
         for(History history:historyList){
+            if(history.getDeviceId().equals("55bbb118e4b00443859e80fa")){
+                history.setDeviceId("ems00010");
+            }
             historyDocument=new HistoryDocument();
             BeanUtils.copyProperties(history,historyDocument);
+            System.out.println(historyDocument);
             historyDocumentListList.add(historyDocument);
         }
         return historyDocumentListList;
